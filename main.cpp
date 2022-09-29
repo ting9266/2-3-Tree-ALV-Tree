@@ -1,5 +1,5 @@
-// 10827232 ¾|è®®¦ ¸ê¤u¤G¤A 
-// 10827233 ªL®x ¸ê¤u¤G¤A 
+// 10827232 é­¯éœˆæ© è³‡å·¥äºŒä¹™ 
+// 10827233 æ—åº­ è³‡å·¥äºŒä¹™ 
 #include <iostream>                   // cout, endl
 #include <fstream>                    // open, is_open, close, ignore
 #include <string>                     // string, find_last_of, substr
@@ -62,7 +62,7 @@ class Data{
 
 class mT{     
  public:
- 	 int num = 0;//½s¸¹ 
+ 	 int num = 0;//ç·¨è™Ÿ 
  	 int size = 0;
  	 int node = 1;
  	 bst root = NULL;
@@ -82,7 +82,7 @@ class mT{
 	 void sort( vector<struct data>newtn, bst parent );
 	 tree23* split( bst now );
 	 tree23* splitleaf(bst now, vector< data> newtn); 
-	 tree23* tree23insert( bst now, int k, int time, bool back  );           //´¡¤J·s¤@µ§¸ê®Æ  
+	 tree23* tree23insert( bst now, int k, int time, bool back  );           //æ’å…¥æ–°ä¸€ç­†è³‡æ–™  
      int Height(bst root);
      void Searchtree23(string school, bst root );
 } ;
@@ -105,7 +105,7 @@ class AVLTree{
 
 class mS{     
  public:
- 	 int num = 0;//½s¸¹ 
+ 	 int num = 0;//ç·¨è™Ÿ 
  	 bst lastroot = NULL;
  	 atree avlroot = NULL;
  	 vector<data> slist ;
@@ -176,7 +176,7 @@ string mT::Degital(string r6) {
 }
 
 
-void mT::readandAcc(string line) { //§â¤@¦æline¸Ìªº¸ê°T¦s¶ilist
+void mT::readandAcc(string line) { //æŠŠä¸€è¡Œlineè£¡çš„è³‡è¨Šå­˜é€²list
     string temp = "\0";  
     
     int i = 0 ;
@@ -394,7 +394,7 @@ tree23* mT::tree23insert( bst now, int k, int time, bool back ){
   int i = 0;
   bst check = NULL;
   int isleaf = 1;
-  //«Ø¥ß¸`ÂI¤º®e
+  //å»ºç«‹ç¯€é»å…§å®¹
   if( time == 0 && k!=0 ){ 	
     newtn.push_back(list[k]); 	
   }
@@ -415,7 +415,7 @@ tree23* mT::tree23insert( bst now, int k, int time, bool back ){
   }
 
   else{
-  //§ä¨ìnewtn¥¿½Tleaf node 
+  //æ‰¾åˆ°newtnæ­£ç¢ºleaf node 
   if( now->key1[0].name.compare( newtn[0].name ) == 0 ){
     now->key1.push_back(newtn[0]);
 	now = backtoroot( now );  	
@@ -431,7 +431,7 @@ tree23* mT::tree23insert( bst now, int k, int time, bool back ){
    }
 	
    isleaf = checkisleaf( now );	
-  //not leaf ´M§ächild 	
+  //not leaf å°‹æ‰¾child 	
 
   	if(isleaf == 0){
 		 	
@@ -640,7 +640,7 @@ void AVLTree::balance(atree now,bool bal){
 	}
 	else if((bal == false) ){
 		
-	  //  §ä¨ìNOWªºparent
+	  //  æ‰¾åˆ°NOWçš„parent
   	  atree temp = NULL;
 	  temp = new AVL ;
 	  temp = root ;
@@ -653,7 +653,7 @@ void AVLTree::balance(atree now,bool bal){
 	  }
 	  
 
-	  // check now ªºBF
+	  // check now çš„BF
 	  if (temp->department[0].compare( now ->department[0] ) > 0){
 	  
 	    if( countBF(now) == 2 ){
@@ -705,7 +705,7 @@ void AVLTree::balance(atree now,bool bal){
 	    }  
       }  
 	
-	  //§ä¤W¤@­Ó¸`ÂI 
+	  //æ‰¾ä¸Šä¸€å€‹ç¯€é» 
 	  now = temp ;
 	  balance( now, bal);
 	
@@ -723,7 +723,7 @@ void AVLTree::avltreeinsert(AVLType A){
 	now = new AVL ;
    
 	
-	//±N¸ê®Æ©ñ¶i¸`ÂI 
+	//å°‡è³‡æ–™æ”¾é€²ç¯€é» 
 	newnode = new AVL ;
 	newnode->no.push_back(A.no[0]);
 	newnode->department.push_back(A.department[0])  ;
@@ -734,33 +734,33 @@ void AVLTree::avltreeinsert(AVLType A){
 	newnode->left = NULL ;
     newnode->right = NULL ;
 	
-	//´¡¤J·s¸`ÂI 
+	//æ’å…¥æ–°ç¯€é» 
 	if( root == NULL){ 
 	  root = newnode ;
 	} 
 	else{
 	  now = root ; 
       while( insert == false){
-	    if ( newnode->department[0].compare(now->department[0]) < 0 ) { // ­Y·s¼W¸ê®Æ¤ñnow¤p 
-	    	if( now->left == NULL ){  // ¥B now¥ª°¼¤wµL¸`ÂI¡A«h´¡¤J 
+	    if ( newnode->department[0].compare(now->department[0]) < 0 ) { // è‹¥æ–°å¢è³‡æ–™æ¯”nowå° 
+	    	if( now->left == NULL ){  // ä¸” nowå·¦å´å·²ç„¡ç¯€é»ï¼Œå‰‡æ’å…¥ 
 	    	  now->left = newnode ;
 			  //cout << "bigger " << newnode->no[0]  << endl ;	
 	    	  insert = true ;	
 			} // if
 			else 
-			  now = now -> left ; // ­Y¦³«h©¹¥ªÄ~Äò¤ñ¸û 
+			  now = now -> left ; // è‹¥æœ‰å‰‡å¾€å·¦ç¹¼çºŒæ¯”è¼ƒ 
 		}
-		else if ( newnode->department[0].compare(now->department[0]) > 0 ) { // ­Y·s¼W¸ê®Æ¤ñnow¤j 
-	    	if( now->right == NULL ){  // ¥B now¥k°¼¤wµL¸`ÂI¡A«h´¡¤J 
+		else if ( newnode->department[0].compare(now->department[0]) > 0 ) { // è‹¥æ–°å¢è³‡æ–™æ¯”nowå¤§ 
+	    	if( now->right == NULL ){  // ä¸” nowå³å´å·²ç„¡ç¯€é»ï¼Œå‰‡æ’å…¥ 
 	    	  now->right = newnode ;
 			  //cout << "smaller " << newnode->no[0]  << endl ;
 	    	  insert = true ;	
 			} // if
 			else 
-			  now = now -> right ; // ­Y¦³«h©¹¥kÄ~Äò¤ñ¸û 
+			  now = now -> right ; // è‹¥æœ‰å‰‡å¾€å³ç¹¼çºŒæ¯”è¼ƒ 
 		}
-		else if ( newnode->department[0].compare(now->department[0]) == 0 ) { // ­Y·s¼W¸ê®Æ©Mnow¬Û¦P 
-	    	 now->department.push_back(newnode->department[0]); // ±N¸ê®Æpush¶inow 
+		else if ( newnode->department[0].compare(now->department[0]) == 0 ) { // è‹¥æ–°å¢è³‡æ–™å’Œnowç›¸åŒ 
+	    	 now->department.push_back(newnode->department[0]); // å°‡è³‡æ–™pushé€²now 
 	    	 now->no.push_back(newnode->no[0]);
 	    	 now->cname.push_back(newnode->cname[0]);
 	    	 now->dayornight.push_back(newnode->dayornight[0]);
@@ -774,7 +774,7 @@ void AVLTree::avltreeinsert(AVLType A){
 	   
 	   
 	   
-	 // ½T»{¨ä¬O§_¥­¿Å
+	 // ç¢ºèªå…¶æ˜¯å¦å¹³è¡¡
 	 if(now != newnode){
        balance(now,bal);	
 	 } // if
@@ -847,7 +847,7 @@ int main(void)
           cout << endl << "Input a file number [0: quit]: " ; 
           
           
-          // Åª¨úÀÉ®×¦W 
+          // è®€å–æª”æ¡ˆå 
           char filename[] = "\0";
           int numberoffile = 0 ;
           numberoffile = fun.getNO(filename); 
@@ -855,7 +855,7 @@ int main(void)
               break ;
             
             
-		  // ¶}±ÒÀÉ®× 
+		  // é–‹å•Ÿæª”æ¡ˆ 
           file.open( filename, ios::in );
           while(!file){
             cout << endl << "### " << filename << " does not exist! ###" << endl;
@@ -871,7 +871,7 @@ int main(void)
           if (file){
        
                                
-            // ±N¸ê®Æ©ñ¤J
+            // å°‡è³‡æ–™æ”¾å…¥
 	        string line = "/0",skipline ="/0" ;
 	        
 	        int k = 0;
@@ -889,7 +889,7 @@ int main(void)
 			  //h++;             
 			} // WHILE
 
-            // «Ø¥ß23tree
+            // å»ºç«‹23tree
             k = 0;           
             while( k<fun.list.size() ){
               //cout<<"tree"<<endl;
@@ -953,7 +953,7 @@ int main(void)
 		    fun.list.clear();
 		    free(fun.root);
 		    fun.root = NULL;				
-			// Ãö³¬ÀÉ®×   
+			// é—œé–‰æª”æ¡ˆ   
 	        file.close();       
 	    } // end if      
        } // end if
@@ -967,7 +967,7 @@ int main(void)
 	      		  
 		else{
 		  
-		  //±Æ¦¨AVL Tree 
+		  //æ’æˆAVL Tree 
 		  int bottom = 0 ;
 		  
 		  while ( bottom < fun.avllist.size() ){
@@ -976,14 +976,14 @@ int main(void)
 		  }
 		  
 		  
-		  // ¿é¥X
+		  // è¼¸å‡º
 		  cout << "Tree height = " << avl.Height(avl.root) << endl ;
 		  for(int i = 0 ; i < avl.root->no.size(); i++ ){
 		    cout << i+1 << ": [" <<  avl.root->no[i] << "] " << avl.root->cname[i] << ", " << avl.root->department[i] << ", " ;
 			cout << avl.root->dayornight[i] << ", " <<  avl.root->degree[i] << ", " <<  avl.root->num[i] << endl ; 
 	      }
 	
-	      // Ãö³¬ÀÉ®× 
+	      // é—œé–‰æª”æ¡ˆ 
 		  noe = 1 ;   
 		  sfun.avlroot = avl.root; 			      
 		  avl.root = NULL;			
